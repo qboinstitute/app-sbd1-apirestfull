@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.qbo.model.security.RolUsuario;
 import com.qbo.model.security.Usuario;
 import com.qbo.repository.RolUsuarioRepository;
 import com.qbo.repository.UsuarioRepository;
-
+@Service
 public class SeguridadService {
 	
 	@Autowired

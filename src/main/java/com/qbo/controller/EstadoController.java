@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,14 +21,14 @@ import com.qbo.model.*;
 import com.qbo.model.response.MessageResponse;
 import com.qbo.service.EstadoService;
 
+@PreAuthorize("hasRole('ADMIN')")
 @RestController
 @RequestMapping(path = "api/v1/estado")
 public class EstadoController {
 	
 	@Autowired 
 	private EstadoService service;
-	
-	
+		
 	@GetMapping("")
 	public ResponseEntity<List<Estado>> obtenerTodo(){
 		List<Estado> estados = new ArrayList<Estado>();
